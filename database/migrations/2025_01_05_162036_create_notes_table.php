@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Вот эта строка добавлена!
+            $table->string('title'); // Добавьте поля title и content
+            $table->text('content');
             $table->timestamps();
         });
     }

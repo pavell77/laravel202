@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome'); // Отображает welcome.blade.php
@@ -18,3 +19,5 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/test', [TestController::class, 'test']);
+
+Route::resource('notes', NoteController::class)->middleware('auth');
