@@ -10,7 +10,7 @@ class Note extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content']; // Разрешенные для массового присвоения поля
+    protected $fillable = ['title', 'content', 'user_id']; // Разрешенные для массового присвоения поля
 
     public function user(): BelongsTo
     {
